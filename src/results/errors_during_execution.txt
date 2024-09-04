@@ -1,0 +1,43 @@
+
+Dataset: src/csv_data/all_data_18_clean_a_500.csv
+Model: Geminipro
+Error in row : 126 Error : Invalid json output: ```json
+{"reasoning": "The reviewer acknowledges the improvements of the paper's proposal ("The proposed model achieved STOA performance ... and several ablation experiments show the effectiveness of these two improvements"). However, they also state that \"the improvement is not incremental.\" The use of \"although\" suggests a counterpoint, indicating mixed but ultimately more positive sentiment. The language is formal and not critical of the authors' work, suggesting politeness. Therefore, the sentiment is slightly positive, and the politeness is neutral to slightly positive.", "sentiment_score": 60, "politeness_score": 70}
+```
+Invalid json output: ```json
+{"reasoning": "The reviewer acknowledges the improvements of the paper's proposal ("The proposed model achieved STOA performance ... and several ablation experiments show the effectiveness of these two improvements"). However, they also state that \"the improvement is not incremental.\" The use of \"although\" suggests a counterpoint, indicating mixed but ultimately more positive sentiment. The language is formal and not critical of the authors' work, suggesting politeness. Therefore, the sentiment is slightly positive, and the politeness is neutral to slightly positive.", "sentiment_score": 60, "politeness_score": 70}
+```
+############################################################################
+Dataset: 
+The path to the CSV file is: src/csv_data/all_data_19_a_800_clean.csv
+The path to the output CSV file is: src/results/geminipro_data_19_a_800_clean.csv
+
+Error in row : 30 Error : Invalid json output: ```json
+{"reasoning": "The review acknowledges the paper's potential ("This paper shows some promise") but raises several concerns, indicating a lukewarm reception. The reviewer points out limitations in novelty, experimental setup, and clarity of results. While the language is direct and critical, it maintains a professional and constructive tone, suggesting areas for improvement rather than outright rejection.", "sentiment_score": 20, "politeness_score": 60}
+```
+Invalid json output: ```json
+{"reasoning": "The review acknowledges the paper's potential ("This paper shows some promise") but raises several concerns, indicating a lukewarm reception. The reviewer points out limitations in novelty, experimental setup, and clarity of results. While the language is direct and critical, it maintains a professional and constructive tone, suggesting areas for improvement rather than outright rejection.", "sentiment_score": 20, "politeness_score": 60}
+
+Error in row : 527 Error : Invalid json output: ```json
+{"reasoning": "The reviewer finds the basic idea interesting ("neat") but has serious concerns about the clarity and correctness of the mathematical formulation. They find parts of the paper 'straightforward' but are unable to understand a key equation, hindering their overall judgment. The language is critical but professional and not disrespectful.", "sentiment_score": -20, "politeness_score": 60}
+```
+Invalid json output: ```json
+{"reasoning": "The reviewer finds the basic idea interesting ("neat") but has serious concerns about the clarity and correctness of the mathematical formulation. They find parts of the paper 'straightforward' but are unable to understand a key equation, hindering their overall judgment. The language is critical but professional and not disrespectful.", "sentiment_score": -20, "politeness_score": 60}
+```
+############################################################################
+The path to the CSV file is: src/csv_data/all_data_19_b_clean.csv
+The path to the output CSV file is: src/results/geminipro_data_19_b_clean.csv
+
+Error in row : 166 Error : Invalid json output: ```json
+{"reasoning": "The reviewer provides constructive criticism, acknowledges the merits of the paper ("decent work," "intuitive and natural" method), and offers concrete suggestions for improvement. This suggests an overall positive sentiment, but not overly enthusiastic. The language is direct and professional, asking for clarification and suggesting improvements without resorting to harsh or disrespectful language.", "sentiment_score": 60, "politeness_score": 70}
+```
+Invalid json output: ```json
+{"reasoning": "The reviewer provides constructive criticism, acknowledges the merits of the paper ("decent work," "intuitive and natural" method), and offers concrete suggestions for improvement. This suggests an overall positive sentiment, but not overly enthusiastic. The language is direct and professional, asking for clarification and suggesting improvements without resorting to harsh or disrespectful language.", "sentiment_score": 60, "politeness_score": 70}
+```
+
+############################################################################
+The path to the CSV file is: src/csv_data/all_data_19_b_clean.csv
+The path to the output CSV file is: src/results/anthropic_claude_all_2019_b_clean.csv
+
+Error in row : 25 Error : Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}}
+Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}}
