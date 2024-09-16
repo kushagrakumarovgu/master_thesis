@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser(description='Process some csv file.')
 
 # Add the --csv-file argument
 parser.add_argument('--csv-file', type=str, required=True, help='Path to the CSV file')
-parser.add_argument('--output-file-path', type=str, required=True, help='Path to the output CSV file')
+#parser.add_argument('--output-file-path', type=str, required=True, help='Path to the output CSV file')
 
 
 # Now we can instantiate our model object and generate chat completions:
@@ -63,43 +63,53 @@ if __name__ == "__main__":
     # Get the CSV file path.
     csv_file_path = args.csv_file
     print(f'The path to the CSV file is: {csv_file_path}')
-    output_file_path = args.output_file_path
+    # Get file name from csv_file_path
+    file_name = csv_file_path.split('/')[-1]
+    output_file_path = f"src/new_results/{file_name.replace('.csv', '_geminipro_output.csv')}"
+    #output_file_path = csv_file_path.replace('.csv', '_gemini_sample_5_output.csv')
     print(f'The path to the output CSV file is: {output_file_path}')
 
     df = pd.read_csv(csv_file_path)
     # for testing - only take 5 rows.
-    #df = df.head(50)
+    #df = df.head(5)
 
     output_list = []
 
     output_cols = ['review', 'reasoning', 'sentiment_score', 'politeness_score']
     
     for index, row in df.iterrows():
+        review_list = eval(row['review'])
+        outputs = list()
         #print(row)
         #row = row[1]
-        try:
-            review = row['review']
+        import time
+        time.sleep(5)
+        for review in review_list:
+            for _ in range(3):
+                try: 
+                    output = generate_inference_gemini(review)
+                    break
+                except Exception as e:
+                    print(f"Error in row : {index} Error : {e}")
+                    logging.error(f"Error in row : {index} Error : {e}")
+                    #TODO: Handle an empty output
+                    output = ModelOutput(reasoning="ERROR", sentiment_score=0, politeness_score=0)
+                    print(e)
+                    continue
 
-            time.sleep(random.randint(5, 10))
+            outputs.append(output)
+        
+        output_dict = dict()
+        #print(f"outputs : {outputs}")
 
-            output = generate_inference_gemini(review)
-
-            output_dict = output.dict()
-            output_dict['review'] = review
-
-            output_dict = { col:output_dict[col] for col in output_cols }
-        except Exception as e:
-            print(f"Error in row : {index} Error : {e}")
-            logging.error(f"Error in row : {index} Error : {e}")
-            print(e)
-            output_dict = { col:None for col in output_cols }
-            output_dict['review'] = row['review']
-            output_dict = { col:output_dict[col] for col in output_cols }
+        output_dict['reviews'] = row['review']
+        output_dict['sentiment_scores'] = [output.sentiment_score for output in outputs]
+        output_dict['politeness_scores'] = [output.politeness_score for output in outputs]
+        output_dict['reasonings'] = [output.reasoning for output in outputs]
 
         output_list.append(output_dict)
-        print(f"Row : {index} done")
+        print(f"Row {index} done!!.")
 
     df_output = pd.DataFrame(output_list)
 
     df_output.to_csv(output_file_path, index=False)
-    
