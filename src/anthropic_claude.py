@@ -66,13 +66,16 @@ if __name__ == "__main__":
     csv_file_path = args.csv_file
     print(f'The path to the CSV file is: {csv_file_path}')
     file_name = csv_file_path.split('/')[-1]
-    output_file_path = f"src/new_results/{file_name.replace('.csv', '_anthropic_claude_sonnet_output_200a.csv')}"
+    output_file_path = f"src/new_results/{file_name.replace('.csv', '_anthropic_claude_sonnet_output_d.csv')}"
     print(f'The path to the output CSV file is: {output_file_path}')
 
     df = pd.read_csv(csv_file_path)
     # for testing - only take 5 rows.
     #df = df.head(2)
-    df = df.loc[0:200]
+    #df = df.loc[0:200]
+    #df = df.loc[201:600]
+    #df = df.loc[601:1000]
+    df = df.loc[1001:]
 
     output_list = []
 
