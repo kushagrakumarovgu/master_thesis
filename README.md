@@ -126,18 +126,6 @@ The merged file is written to `src/new_results/final_result/`.
 1. **"Too many requests" errors** – Your provider is rate-limiting the job. Split the master CSV into smaller batches, run the scripts separately, and combine outputs with `src/combine.py`.
 2. **"Number of requests exceeded" or quota exhaustion** – Similar to the above; reduce batch size or wait for quota reset. Consolidate the individual outputs once processing completes.
 
-## Citation
-
-If you use this tool in your research or project, please cite appropriately:
-
-```bibtex
-@software{kushagra2025biasdetection,
-  title = {Bias Detection Tool using Large Language Models},
-  author = {Kumar, Kushagra},
-  year = {2025},
-  url = {https://github.com/kushagrakumarovgu/master_thesis}
-}
-```
 
 ## Contributing
 
